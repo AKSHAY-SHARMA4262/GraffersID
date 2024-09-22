@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import apiClient from "../../axiosConfig";
 import {
+  Box,
   Button,
   Dialog,
   DialogActions,
@@ -43,16 +44,46 @@ const CompanyListing = () => {
 
   return (
     <div style={{ padding: "20px" }}>
-      <Typography variant="h4" gutterBottom>
-        Company Listing
-      </Typography>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={() => setOpenAddCompanyModal(true)}
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        mb={2}
       >
-        Add Company
-      </Button>
+        <Box
+          sx={{
+            marginBottom: "24px",
+            padding: "8px 16px",
+            boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)", // Soft shadow for a subtle effect
+          }}
+        >
+          <Typography
+            variant="h4"
+            gutterBottom
+            sx={{
+              fontWeight: 600, // Slightly bold for prominence
+              color: "#333", // Dark gray for a modern, professional tone
+              textAlign: "left", // Align text to the left
+            }}
+          >
+            Company Listing
+          </Typography>
+        </Box>
+        <Button
+          variant="contained"
+          color="purple"
+          onClick={() => setOpenAddCompanyModal(true)}
+          sx={{
+            background: "linear-gradient(45deg, purple, pink)",
+            color: "white",
+            "&:hover": {
+              background: "linear-gradient(45deg, pink, purple)",
+            },
+          }}
+        >
+          Add Company
+        </Button>
+      </Box>
 
       {/* Render company list */}
       <CompanyList companies={companies} />
@@ -112,11 +143,23 @@ const CompanyListing = () => {
                 <DialogActions>
                   <Button
                     onClick={() => setOpenAddCompanyModal(false)}
-                    color="secondary"
+                    variant="contained"
+                    color="primary"
                   >
                     Cancel
                   </Button>
-                  <Button type="submit" variant="contained" color="primary">
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    sx={{
+                      background: "linear-gradient(45deg, purple, pink)",
+                      color: "white",
+                      "&:hover": {
+                        background: "linear-gradient(45deg, pink, purple)",
+                      },
+                    }}
+                  >
                     Save
                   </Button>
                 </DialogActions>

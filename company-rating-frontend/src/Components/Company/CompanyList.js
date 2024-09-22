@@ -34,6 +34,13 @@ const CompanyList = ({ companies }) => {
               <Button
                 variant="contained"
                 color="primary"
+                sx={{
+                  background: "linear-gradient(45deg, black, gray)",
+                  color: "white",
+                  "&:hover": {
+                    background: "linear-gradient(45deg, gray, black)", // On hover, the colors will reverse
+                  },
+                }}
                 onClick={() => handleDetailReview(company.id)} // This is correct
               >
                 Detail Review
